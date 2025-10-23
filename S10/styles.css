@@ -1,0 +1,188 @@
+/*
+ * HOJA DE ESTILOS PERSONALIZADA - NOSTALGIA RETRO
+ */
+
+/* 1. Definimos tu paleta HSL y sobrescribimos Bootstrap */
+:root {
+    /* Tu paleta HSL */
+    --color-plastic: hsl(0, 0%, 93%);
+    --color-nintendo: hsl(318, 100%, 45%);
+    --color-sega: hsl(213, 97%, 48%);
+    --color-gold: hsl(42, 100%, 47%);
+
+    /* Colores base para texto */
+    --color-texto-principal: hsl(0, 0%, 15%);
+    --color-texto-secundario: hsl(0, 0%, 30%);
+
+    /* 2. Sobrescribir variables de Bootstrap 5 */
+    /* ========================================= */
+
+    /* Colores principales */
+    --bs-primary: var(--color-sega);         /* SEGA será el color primario */
+    --bs-warning: var(--color-gold);         /* GOLD será el color de aviso */
+    --bs-info: var(--color-nintendo);      /* NINTENDO será el color de información */
+    
+    /* Dejamos success y danger por defecto, pero puedes cambiarlos */
+    /* --bs-success: hsl(134, 61%, 41%); */
+    /* --bs-danger: hsl(354, 70%, 54%); */
+    
+    /* Colores de fondo y texto */
+    
+    /* ================================================================= */
+    /* AQUÍ ESTÁ EL CAMBIO (MÁS NOTABLE) */
+    /* ================================================================= */
+    --bs-body-bg: hsl(213, 50%, 90%);      /* ¡FONDO CAMBIADO! Un azul-plástico MÁS OSCURO */
+    /* ================================================================= */
+
+    --bs-body-color: var(--color-texto-principal);
+    --bs-secondary-color: var(--color-texto-secundario);
+
+    /* Definir el color oscuro para el footer y banner */
+    /* Un gris-azulado muy oscuro, combina con SEGA */
+    --bs-dark: hsl(220, 13%, 20%);
+    --bs-dark-rgb: 45, 50, 60;
+    
+    /* Ajustar fondos de componentes */
+    --bs-body-tertiary-bg: hsl(0, 0%, 100%); /* Navbar y cards serán blancas */
+    --bs-light: hsl(0, 0%, 98%);
+    --bs-light-rgb: 250, 250, 250;
+
+    /* Ajustar bordes */
+    --bs-border-radius: 0.5rem; /* Bordes un poco más redondeados */
+    --bs-border-color: hsl(0, 0%, 85%);
+
+    /* Ajustar links */
+    --bs-link-color: var(--color-sega);
+    --bs-link-hover-color: hsl(213, 97%, 38%); /* SEGA más oscuro al pasar el mouse */
+}
+
+/* 3. Estilos personalizados */
+/* ========================================= */
+
+/* Aplicar fuentes */
+body {
+    /* Fuente limpia y moderna para párrafos */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand span {
+    /* Fuente retro para todos los títulos */
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: -1px; /* Pequeño ajuste para esta fuente */
+}
+
+/* Ajuste específico para el Header principal */
+header h1 {
+    color: var(--color-sega);
+    /* Efecto de sombra 2D retro */
+    text-shadow: 4px 4px 0 var(--color-nintendo);
+}
+header .lead {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    color: var(--color-texto-secundario);
+}
+
+/* Ajuste para el banner promocional */
+#banner {
+    /* El bg-dark ya lo cambiamos en :root */
+    border: 4px solid var(--color-gold);
+}
+
+/* Ajuste para las alertas de información (color Nintendo) */
+/* Bootstrap 5 usa variables CSS para sus componentes, 
+   así que podemos sobrescribirlas fácilmente */
+.alert-info {
+    --bs-alert-bg: hsla(318, 100%, 45%, 0.1);
+    --bs-alert-border-color: hsla(318, 100%, 45%, 0.3);
+    --bs-alert-color: var(--color-nintendo);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+}
+
+/* Ajuste para las pestañas del formulario */
+.nav-pills .nav-link {
+    color: var(--color-sega);
+}
+.nav-pills .nav-link.active {
+    background-color: var(--color-sega);
+    /* Sombra estilo 8-bit */
+    box-shadow: 3px 3px 0 var(--color-gold);
+}
+
+/* Ajuste para los acordeones */
+.accordion-button:not(.collapsed) {
+    background-color: hsla(213, 97%, 48%, 0.1); /* Fondo SEGA claro */
+    color: var(--color-sega);
+    box-shadow: inset 0 -1px 0 var(--bs-border-color);
+}
+
+/* ========================================== */
+/* NUEVO: Efecto Hover con HSL (Instrucción del profe) */
+/* ========================================== */
+/* Aquí añadimos un efecto hover a todas las tarjetas (cards).
+  Cuando pasas el mouse sobre una tarjeta:
+  1. El borde cambia al color --color-sega (que es un HSL).
+  2. La sombra (box-shadow) se hace más grande y usa el color --color-gold (que es HSL).
+*/
+.card:hover {
+    border-color: var(--color-sega); /* HSL: hsl(213, 97%, 48%) */
+    box-shadow: 0 0.5rem 1rem hsla(42, 100%, 47%, 0.3); /* Sombra con --color-gold */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
+}
+
+
+/* ========================================== */
+/* AÑADIDO: Estilos de tu CSS para WhatsApp */
+/* ========================================== */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;     /* Distancia desde abajo */
+  right: 20px;      /* Distancia desde la derecha */
+  background-color: #25d366; /* Verde WhatsApp */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;  /* Tamaño del ícono */
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.25);
+  z-index: 1055;    /* Más alto que navbar/carrusel */
+  text-decoration: none;
+  transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+
+  /* Por defecto lo ocultamos; se muestra al hacer scroll con JS */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+/* Estado visible al hacer scroll (controlado por JS) */
+.whatsapp-float.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Hover/focus: efecto de ampliación */
+.whatsapp-float:hover,
+.whatsapp-float:focus {
+  background-color: #20b954;
+  transform: scale(1.08);
+  outline: none;
+}
+
+/* Evitamos que el botón tape el footer en pantallas pequeñas */
+@media (max-width: 575.98px) {
+  footer { padding-bottom: 84px; } /* 60px botón + 24px aire */
+}
+
+/* Accesibilidad: menos movimiento si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float { transition: none; }
+}
